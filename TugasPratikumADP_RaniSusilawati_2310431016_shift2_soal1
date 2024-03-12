@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  float ag, sksag, f, sksf, kim, skskim, bm, sksbm, pm, skspm, k1, sksk1, ad, sksad, bi, sksbi, tag, tf, tkim, tbm, tpm, tk1, tad, tbi, tn, tsks, IP;
+
+  cout<<" masukkan angka mutu agama= "; cin>>ag;
+  cout<<" masukkan sks agama= "; cin>>sksag;
+
+  cout<<" masukkan angka mutu fisika dasar = "; cin>>f;
+  cout<<" masukkan sks fisika dasar= = "; cin>>sksf;
+
+  cout<<" masukkan angka mutu kimia dasar= "; cin>>kim;
+  cout<<" masukkan sks kimia dasar= = "; cin>>skskim;
+
+  cout<<" masukkan angka mutu bahasa inggris matematika= "; cin>>bm;
+  cout<<" masukkan sks bahasa inggris matematika= "; cin>>sksbm;
+
+  cout<<" masukkan angka mutu pengantar matematika= "; cin>>pm;
+  cout<<" masukkan sks pengantar matematika= "; cin>>skspm;
+
+  cout<<" masukkan angka mutu kalkulus 1= "; cin>>k1;
+  cout<<" masukkan sks  kalkulus 1= "; cin>>sksk1;
+
+  cout<<" masukkan angka mutu analisis data= "; cin>>ad;
+  cout<<" masukkan sks analisis data=  "; cin>>sksad;
+
+  cout<<" masukkan angka mutu bahasa indonesia= "; cin>>bi;
+  cout<<" 1masukkan sks bahasa indonesia= "; cin>>sksbi;
+
+  tag=ag*sksag;
+  tf=f*sksf;
+  tkim=kim*skskim;
+  tbm=bm*sksbm;
+  tpm=pm*skspm;
+  tk1=k1*sksk1;
+  tad=ad*sksad;
+  tbi=bi*sksbi;
+  cout<< "===============================================================================\n";
+  tn=tag+tf+tkim+tbm+tpm+tk1+tad+tbi;
+  tsks=sksag+sksf+skskim+sksbm+skspm+sksk1+sksad+sksbi;
+  IP=tn/tsks;
+
+cout<< "total nilai semester= "<<tn<<endl;
+cout<< "total sks semester= "<<tsks<<endl;
+cout<< "IP= "<<IP;
+
+
+}
