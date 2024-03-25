@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Fungsi untuk menghitung bilangan Fibonacci ke-n
+long long fibonacci(int n) {
+    if (n <= 2)
+        return 1;
+
+    long long a = 1, b = 1, c;
+    for (int i = 3; i <= n; ++i) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return b;
+}
+
+int main() {
+    int n;
+    long long sum = 0;
+
+    do {
+        cout << "Masukkan nilai n (antara 3 dan 199, namun bukan 100-109): ";
+        cin >> n;
+    } while ((n < 3 || n > 199) || (n >= 100 && n <= 109));
+
+    // Menghitung bilangan Fibonacci ke-71
+    long long fib_71 = fibonacci(71);
+    cout << "Bilangan Fibonacci ke-71: " << fib_71 << endl;
+
+    // Menghitung jumlah dari 1 hingga n
+    for (int i = 1; i <= n; ++i) {
+        sum += fibonacci(i);
+    }
+
+    cout << "Jumlah dari 1 hingga " << n << " adalah: " << sum << endl;
+
+    return 0;
+}
