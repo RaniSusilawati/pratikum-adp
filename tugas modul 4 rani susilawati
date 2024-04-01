@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string teks;
+
+    cout << "Masukkan lirik lagu: ";
+    getline(cin, teks);
+
+    int i = 0;
+    while (i < teks.length()) {
+        if (teks[i] == 'a' || teks[i] == 'A' || teks[i] == 'e' || teks[i] == 'E' || teks[i] == 'i' || teks[i] == 'I' || teks[i] == 'o' || teks[i] == 'O' || teks[i] == 'u' || teks[i] == 'U') {
+            teks[i] = 'i';
+        }
+        i++;
+    }
+
+    cout << "Output: " << teks << endl;
+
+    return 0;
+}
