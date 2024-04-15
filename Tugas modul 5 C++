@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int x;
+    double f[100], g[100], h[100];
+    int n, i;
+    char c;
+
+    // Output 1
+    cout << "TABEL FUNGSI" << endl;
+    cout << "f(x) = \begin{cases}" << endl;
+    cout << "3x^2 + 7x - 2, & \text{if } x >= 0" << endl;
+    cout << "2x^2  - 5x - 4, & \text{if } x < 0" << endl;
+    cout << "\end{cases}" << endl;
+    cout << "g(x) = (f(x))^2 - sqrt(f(x))" << endl;
+    cout << "h(x) = f(x) * g(x)" << endl;
+    cout << endl;
+
+    // Input
+    do {
+        cout << "input banyak data n = ";
+        cin >> n;
+
+        for (i = 0; i < n; i++) {
+            cout << "input nilai x ke-" << i+1 << " = ";
+            cin >> x;
+
+            if (x >=0) {
+                f[i] = 3*pow(x, 2) + 7*x - 2;
+            } else {
+                f[i] =  2*pow(x, 2) - 5*x - 4; // Merubah tanda 5x menjadi -5x
+            }
+
+            g[i] = pow(f[i], 2) - sqrt((f[i]));
+            h[i] = f[i] * g[i];
+
+            cout << "No " << i+1 << "\t" << "x = " << x << "\t" << "f(x) = " << f[i] << "\t" << "g(x) = " << g[i] << "\t" << "h(x) = " << h[i] << endl;
+        }
+
+        cout << "Input nilai x lagi? Y/N ";
+        cin >> c;
+
+    } while (c == 'Y' || c == 'y');
+
+    return 0;
+}
