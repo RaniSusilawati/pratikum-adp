@@ -1,0 +1,53 @@
+# Input data nilai ujian
+n = int(input("Masukkan jumlah mahasiswa: "))
+m = int(input("Masukkan jumlah mata kuliah: "))
+nilai_uts = []
+nilai_uas = []
+nilai_tugas = []
+nama_mahasiswa = []
+
+for i in range(n):
+    nama = input(f"Masukkan nama mahasiswa {i+1}: ")
+    nama_mahasiswa.append(nama)
+    uts = float(input(f"Masukkan nilai UTS mahasiswa {i+1}: "))
+    uas = float(input(f"Masukkan nilai UAS mahasiswa {i+1}: "))
+    tugas = float(input(f"Masukkan nilai tugas mahasiswa {i+1}: "))
+    nilai_uts.append(uts)
+    nilai_uas.append(uas)
+    nilai_tugas.append(tugas)
+
+# Menampilkan data dalam bentuk tabel
+print("Nama\tUTS\tUAS\tTugas")
+for i in range(n):
+    print(f"{nama_mahasiswa[i]}\t{nilai_uts[i]}\t{nilai_uas[i]}\t{nilai_tugas[i]}")
+
+# Hitung rata-rata nilai ujian
+rata_rata_uts = sum(nilai_uts) / n
+rata_rata_uas = sum(nilai_uas) / n
+rata_rata_tugas = sum(nilai_tugas) / n
+
+print(f"Rata-rata nilai UTS: {rata_rata_uts:.2f}")
+print(f"Rata-rata nilai UAS: {rata_rata_uas:.2f}")
+print(f"Rata-rata nilai Tugas: {rata_rata_tugas:.2f}")
+
+# Mencari nilai tertinggi dan terendah untuk setiap mata kuliah
+nilai_uts_tertinggi = max(nilai_uts)
+nilai_uts_terendah = min(nilai_uts)
+nilai_uas_tertinggi = max(nilai_uas)
+nilai_uas_terendah = min(nilai_uas)
+nilai_tugas_tertinggi = max(nilai_tugas)
+nilai_tugas_terendah = min(nilai_tugas)
+
+index_nilai_uts_tertinggi = nilai_uts.index(nilai_uts_tertinggi)
+index_nilai_uts_terendah = nilai_uts.index(nilai_uts_terendah)
+index_nilai_uas_tertinggi = nilai_uas.index(nilai_uas_tertinggi)
+index_nilai_uas_terendah = nilai_uas.index(nilai_uas_terendah)
+index_nilai_tugas_tertinggi = nilai_tugas.index(nilai_tugas_tertinggi)
+index_nilai_tugas_terendah = nilai_tugas.index(nilai_tugas_terendah)
+
+print(f"Nilai UTS tertinggi: {nilai_uts_tertinggi:.2f} (dari {nama_mahasiswa[index_nilai_uts_tertinggi]})")
+print(f"Nilai UTS terendah: {nilai_uts_terendah:.2f} (dari {nama_mahasiswa[index_nilai_uts_terendah]})")
+print(f"Nilai UAS tertinggi: {nilai_uas_tertinggi:.2f} (dari {nama_mahasiswa[index_nilai_uas_tertinggi]})")
+print(f"Nilai UAS terendah: {nilai_uas_terendah:.2f} (dari {nama_mahasiswa[index_nilai_uas_terendah]})")
+print(f"Nilai Tugas tertinggi: {nilai_tugas_tertinggi:.2f} (dari {nama_mahasiswa[index_nilai_tugas_tertinggi]})")
+print(f"Nilai Tugas terendah: {nilai_tugas_terendah:.2f}(dari {nama_mahasiswa[index_nilai_tugas_terendah]})")
