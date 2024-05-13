@@ -1,0 +1,59 @@
+def Konversi_suhu(suhu, satuan):
+    if satuan == 'C':
+        if 0 <= suhu <= 100:
+            reaumur = suhu * 4 / 5
+            fahrenheit = suhu * 9 / 5 + 32
+            kelvin = suhu + 273.15
+            return f"suhu {suhu} derajat Celcius dapat dikonversi menjadi :\n" \
+                   f"Satuan suhu : Celcius\n" \
+                   f"derajat suhu : {suhu}\n" \
+                   f"Reaumur : {reaumur}\n" \
+                   f"Fahrenheit : {fahrenheit}\n" \
+                   f"Kelvin : {kelvin}"
+        else:
+            return "suhu yang anda inputkan tidak sesuai"
+    elif satuan == 'F':
+        if 32 <= suhu <= 212:
+            celsius = (suhu - 32) * 5 / 9
+            reaumur = (suhu - 32) * 4 / 9 + 32
+            kelvin = (suhu - 32) * 5 / 9 + 273.15
+            return f"suhu {suhu} derajat Fahrenheit dapat dikonversi menjadi :\n" \
+                   f"Satuan suhu : Fahrenheit\n" \
+                   f"derajat suhu : {suhu}\n" \
+                   f"Reaumur : {reaumur}\n" \
+                   f"Celsius : {celsius}\n" \
+                   f"Kelvin : {kelvin}"
+        else:
+            return "suhu yang anda inputkan tidak sesuai"
+    elif satuan == 'R':
+        if 0 <= suhu <= 80:
+            celsius = suhu * 5 / 4
+            fahrenheit = suhu * 9 / 4 + 32
+            kelvin = suhu * 5 / 4 + 273.15
+            return f"suhu {suhu} derajat Reaumur dapat dikonversi menjadi :\n" \
+                   f"Satuan suhu : Reaumur\n" \
+                   f"derajat suhu : {suhu}\n" \
+                   f"Celsius : {celsius}\n" \
+                   f"Fahrenheit : {fahrenheit}\n" \
+                   f"Kelvin : {kelvin}"
+        else:
+            return "suhu yang anda inputkan tidak sesuai"
+    elif satuan == 'K':
+        if 273.15 <= suhu <= 373.15:
+            celsius = suhu - 273.15
+            fahrenheit = celsius * 9 / 5 + 32
+            reaumur = celsius * 4 / 5
+            return f"suhu {suhu} derajat Kelvin dapat dikonversi menjadi :\n" \
+                   f"Satuan suhu : Kelvin\n" \
+                   f"derajat suhu : {suhu}\n" \
+                   f"Celsius : {celsius}\n" \
+                   f"Fahrenheit : {fahrenheit}\n" \
+                   f"Reaumur : {reaumur}"
+        else:
+            return "suhu yang anda inputkan tidak sesuai"
+    else:
+        return "Satuan suhu tidak dikenal"
+
+suhu = float(input("Masukkan suhu dalam derajat : "))
+satuan = input("Masukkan satuan suhu (C/F/R/K) : ")
+print(Konversi_suhu(suhu, satuan))
