@@ -1,0 +1,78 @@
+# Dictionary untuk menyimpan data buku
+buku = {}
+
+# Fungsi untuk menampilkan menu
+def show_menu():
+    print("\n--- Buku ---")
+    print("1. Tambah Buku")
+    print("2. Hapus Buku")
+    print("3. Tampilkan Buku")
+    print("4. Keluar")
+
+# Fungsi untuk menambahkan buku
+def add_book():
+    judul = input("Masukkan judul buku: ")
+    penulis = input("Masukkan nama penulis: ")
+    penerbit = input("Masukkan nama penerbit: ")
+    tahun = input("Masukkan tahun terbit: ")
+    
+    buku[judul] = {"penulis": penulis, "penerbit": penerbit, "tahun": tahun}
+    print(f"Buku '{judul}' berhasil ditambahkan.")
+
+# Fungsi untuk menghapus buku
+def delete_book():
+    judul = input("Masukkan judul buku yang ingin dihapus: ")
+    if judul in buku:
+        del buku[judul]
+        print(f"Buku '{judul}' berhasil dihapus.")
+    else:
+        print(f"Buku '{judul}' tidak ditemukan.")
+
+# Fungsi untuk menampilkan buku
+def show_books():
+    if buku:
+        print("\n--- Daftar Buku ---")
+        for judul, detail in buku.items():
+            print(f"Judul: {judul}")
+            print(f"Penulis: {detail['penulis']}")
+            print(f"Penerbit: {detail['penerbit']}")
+            print(f"Tahun: {detail['tahun']}")
+            print()
+    else:
+        print("Tidak ada buku yang tersimpan.")
+
+# Fungsi untuk menyimpan data buku ke file
+def save_data():
+    with open("buku.txt", "w") as file:
+        for judul, detail in buku.items():
+            file.write(f"{judul} - {detail['penulis']} - {detail['penerbit']} - {detail['tahun']}\n")
+
+# Fungsi untuk mengembalikan data buku dari file
+def load_data():
+    global buku
+    try:
+        with open("buku.txt", "r") as file:
+            for line in file:
+                judul, penulis, penerbit, tahun = line.strip().split(" - ")
+                buku[judul] = {"penulis": penulis, "penerbit": penerbit, "tahun": tahun}
+    except FileNotFoundError:
+        pass
+
+# Program utama
+load_data()
+
+while True:
+    show_menu()
+    pilihan = input("Pilih opsi: ")
+    
+    if pilihan == "1":
+        add_book()
+    elif pilihan == "2":
+        delete_book()
+    elif pilihan == "3":
+        show_books()
+    elif pilihan == "4":
+        save_data()
+        break
+    else:
+        print("Pilihan tidak valid. Silakan pilih lagi.")
